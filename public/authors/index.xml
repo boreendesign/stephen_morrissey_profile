@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Stephen Morrissey</title>
+    <link>/authors/</link>
+      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Authors</title>
+      <link>/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/admin/</guid>
+      <description>&lt;p&gt;Over many years I have been an entrepreneur and love the challenge of finding new and innovative strategies to building products and services. I am an advocate for the Backwards Press Release where I have wrote articles about this process and other helpful tools for business on my blog www.simpleseattle.biz. I have also worked closely with Jay Lyman of the Seattle Public Libraries &amp;lsquo;Library to Business Program’ and have co-lead workshops. One of these workshops was demonstrating how to use Trello who we worked alongside to help people organize both their personal and business projects.&lt;/p&gt;
+
+&lt;p&gt;During my time as Project Manager and Technical Project Manager, I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I have built strong working relationships with coworkers and clients, while ensuring cooperation among company departments, often remotely. Having a background in many different areas of technology and business, has been an invaluable asset. I have been able to manage a project in a streamlined way, especially communicating with managers and colleagues from a more technical role.&lt;/p&gt;
+
+&lt;p&gt;In my free time, I love working on my own projects with various colleagues, often building them from scratch or using Drupal as the underlying framework. Having 7 years of experience working with custom CMS-driven websites using Drupal. I enjoy building sites that are user-centric, based on user testing and market research. I am very excited for Drupal 8’s headless possibilities and configuration management to better streamline the development process on multiple devices.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Robert Ford</title>
+      <link>/authors/robert-ford/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/robert-ford/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

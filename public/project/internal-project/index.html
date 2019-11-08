@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Stephen Morrissey">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="An example of scraping sites using python and creating a json file for import to Hugo">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/project/internal-project/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#4B6A78">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/project/internal-project/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Stephen Morrissey">
+  <meta property="og:url" content="/project/internal-project/">
+  <meta property="og:title" content="Scrap Content and Build a Hugo Site | Stephen Morrissey">
+  <meta property="og:description" content="An example of scraping sites using python and creating a json file for import to Hugo"><meta property="og:image" content="/project/internal-project/featured.jpg">
+  <meta property="twitter:image" content="/project/internal-project/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-10-31T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-10-31T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/project/internal-project/"
+  },
+  "headline": "Scrap Content and Build a Hugo Site",
+  
+  "image": [
+    "/project/internal-project/featured.jpg"
+  ],
+  
+  "datePublished": "2019-10-31T00:00:00Z",
+  "dateModified": "2019-10-31T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Stephen Morrissey"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Stephen Morrissey",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "An example of scraping sites using python and creating a json file for import to Hugo"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Scrap Content and Build a Hugo Site | Stephen Morrissey</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Stephen Morrissey</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article article-project">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Scrap Content and Build a Hugo Site</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 31, 2019
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1" href="https://github.com/boreendesign/public_projects/blob/master/Scrape%20Content%20and%20Build%20Hugo%20Site.ipynb" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+    
+      
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1" href="/" >
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+</div>
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 400px; max-height: 198px;">
+  <div style="position: relative">
+    <img src="/project/internal-project/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Python, Json and Hugo</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+<h1 id="scrap-content-and-build-a-hugo-site">Scrap Content and Build a Hugo Site</h1>
+
+<h3 id="steps">Steps</h3>
+
+<ul>
+<li>Setup and Helper Functions</li>
+<li>Import the Site Data from a CSV</li>
+<li>For Each Site for teaser content, scrape the data (Title, Price and Url to the more information page)</li>
+<li>Combine all the site data into a data frame</li>
+<li>Export this data to a json and csv file for use on the hugo site and other projects (Drupal Import )</li>
+<li>Build the hugo site</li>
+</ul>
+
+<h2 id="setup-and-helper-functions">Setup and Helper Functions</h2>
+
+<h3 id="import-the-neccesary-python-modules">Import the neccesary python modules</h3>
+
+<pre><code class="language-python">import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+from datetime import datetime
+import re
+import hashlib
+import subprocess
+</code></pre>
+
+<h3 id="variable-setup">Variable Setup</h3>
+
+<pre><code class="language-python">timestamp_full = datetime.today().strftime('%Y-%m-%d-%H:%M:')
+timestamp_day  = datetime.today().strftime('%Y-%m-%d')
+
+# Site Import Data
+site_data_file = 'importfiles/sitedata.csv'
+site_data_df = pd.DataFrame(columns=[&quot;company&quot;,&quot;site&quot;, &quot;collection&quot;])
+
+# Site Export Data
+scraped_data_file = 'exportfiles/scraped_sites'
+
+</code></pre>
+
+<h3 id="standard-helper-functions">Standard Helper Functions</h3>
+
+<pre><code class="language-python"># Log processing commands to see where a site may have failed
+def log_processing(url):
+    print('  ---&gt; processing ' + url)
+
+# Pull out everything but numbers and letters from the imported string
+def returnNumbersAndLettersOnly(oldString):
+    newString = ''.join(e for e in oldString if e.isalnum())
+    return newString
+
+# Pull out everything but numbers from the imported string
+def returnNumbersOnly(oldString):
+    newString = ''.join(e for e in oldString if e.isdigit())
+    return newString
+
+# Set default headers for call
+# Testing out calls
+def getHeadersObject(url):
+    headers = {
+        'User-Agent': &quot;PostmanRuntime/7.18.0&quot;,
+        'Accept': &quot;*/*&quot;,
+        'Cache-Control': &quot;no-cache&quot;,
+        'Accept-Encoding': &quot;gzip, deflate&quot;,
+        'Referer': url,
+        'Connection': &quot;keep-alive&quot;,
+        'cache-control': &quot;no-cache&quot;
+    }
+    return headers
+
+# Get the index of an item and handle the exception where the index does not exist and set to empty
+def pop(item,index):
+
+    try:
+        return item[index]
+    except IndexError:
+        return 'null'
+
+    return breakout
+</code></pre>
+
+<h3 id="custom-functions">Custom Functions</h3>
+
+<pre><code class="language-python">def scrapeTeaserDataFromCollection_type1(url,site):
+
+    site_scraped_data_df_temp = pd.DataFrame(columns=[&quot;site&quot;,&quot;title&quot;, &quot;url&quot;,&quot;price&quot;])
+    soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+    resultsRow = soup.find_all('article', {'class': 'box-info'})
+
+    for resultRow in resultsRow:
+        resultRowBreakdown = resultRow.find('p', {'class': 'text-info'}).text.split('\n')
+        try:
+            site_scraped_data_df_temp = site_scraped_data_df_temp.append(
+                {
+                    'site':site,
+                    'title':pop(resultRowBreakdown,0),
+                    'price':returnNumbersOnly(pop(resultRowBreakdown,2)),
+                    'url':resultRow.find('a').get('href')
+                }
+            , ignore_index=True)
+        except IndexError as e:
+            gotdata = ''
+
+    return site_scraped_data_df_temp
+
+def scrapeTeaserDataFromCollection_type2(url,site):
+
+    site_scraped_data_df_temp = pd.DataFrame(columns=[&quot;site&quot;,&quot;title&quot;, &quot;url&quot;,&quot;price&quot;])
+    soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+    resultsRow = soup.find('div', {'class': 'ppb_tour_classic'}).find_all('div', {'class': 'element'})
+
+    for resultRow in resultsRow:
+        try:
+            site_scraped_data_df_temp = site_scraped_data_df_temp.append(
+                {
+                    'site':site,
+                    'title':resultRow.find('h4').text, #&lt;h2&gt;&lt;a -.find('a'),
+                    'price':returnNumbersOnly(resultRow.find('div', {'class': 'tour_price'}).text.strip('$')),
+                    'url':resultRow.find('a',{'class': 'tour_link'}).get('href')
+                }
+            , ignore_index=True)
+        except IndexError as e:
+            gotdata = ''
+
+    return site_scraped_data_df_temp
+</code></pre>
+
+<h3 id="import-the-site-data">Import the site data</h3>
+
+<pre><code class="language-python"># Import and Print out the Sites you want to Scrape
+site_data_df = pd.read_csv(site_data_file)
+site_data_df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>company</th>
+      <th>site</th>
+      <th>collection</th>
+      <th>scrape_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Example Site 1</td>
+      <td>https://www.examplesite.com</td>
+      <td>https://www.example.com/bloglist/</td>
+      <td>type1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Example Site 2</td>
+      <td>https://www.examplesite.com</td>
+      <td>https://www.example.com/bloglist/</td>
+      <td>type2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="scrape-pages">Scrape Pages</h2>
+
+<pre><code class="language-python">site_scraped_data_df = pd.DataFrame(columns=[&quot;site&quot;,&quot;title&quot;, &quot;url&quot;,&quot;price&quot;])
+
+#Go Through All Sites and Scrape the Appropriate Data
+
+for index, row in site_data_df.iterrows():
+    log_processing(row['company'])
+    if row['scrape_type'] == 'type1':
+        site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection(row['collection'],row['company']), ignore_index=True)
+    elif row['scrape_type'] == 'type2':
+        site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection_type2(row['collection'],row['company']), ignore_index=True)
+    else:
+        print(&quot;NOT SCRAPE TYPE FOUND&quot;)
+
+
+
+</code></pre>
+
+<pre><code>  ---&gt; processing Example Site 1
+NOT SCRAPE TYPE FOUND
+  ---&gt; processing Example Site 2
+NOT SCRAPE TYPE FOUND
+</code></pre>
+
+<h2 id="output-results-to-csv-json-files">Output results to CSV &amp; JSON files</h2>
+
+<pre><code class="language-python">#Output to CSV
+site_scraped_data_df.to_csv(scraped_data_file+'.csv')
+#Output to JSON (Orient will allow you to input this into Datatables.net structure for display on a site)
+site_scraped_data_df.to_json(scraped_data_file+'.json',orient='records')
+print(site_scraped_data_df)
+</code></pre>
+
+<pre><code>Empty DataFrame
+Columns: [site, title, url, price]
+Index: []
+</code></pre>
+
+<p><a href="https://github.com/boreendesign/public_projects/blob/master/Scrape%20Content%20and%20Build%20Hugo%20Site.ipynb" target="_blank">Get the code</a></p>
+
+<p>PART 2 - Building the Hugo Site to display the information on Netlify (Coming Soon)</p>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/python/">Python</a>
+  
+  <a class="badge badge-light" href="/tags/static-site/">Static Site</a>
+  
+  <a class="badge badge-light" href="/tags/hugo/">Hugo</a>
+  
+  <a class="badge badge-light" href="/tags/beautiful-soup/">Beautiful Soup</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/project/internal-project/&amp;text=Scrap%20Content%20and%20Build%20a%20Hugo%20Site" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/project/internal-project/&amp;t=Scrap%20Content%20and%20Build%20a%20Hugo%20Site" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Scrap%20Content%20and%20Build%20a%20Hugo%20Site&amp;body=/project/internal-project/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/project/internal-project/&amp;title=Scrap%20Content%20and%20Build%20a%20Hugo%20Site" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Scrap%20Content%20and%20Build%20a%20Hugo%20Site%20/project/internal-project/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/project/internal-project/&amp;title=Scrap%20Content%20and%20Build%20a%20Hugo%20Site" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_hu1aba61affc99f473c39871d8f7f1178b_36690_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Stephen Morrissey</a></h5>
+      <h6 class="card-subtitle">Product Manager &amp; Tech Enthusiast</h6>
+      <p class="card-text">Over many years I have been an entrepreneur and love the challenge of finding new and innovative strategies to building products and services.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:info@boreendesign.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/irishsteve/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/boreendesign" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+    <div class="project-related-pages content-widget-hr">
+      
+      
+
+      
+      
+      
+
+
+
+    </div>
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d6bd04fdad2ad213aa8111c5a3b72fc5.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
