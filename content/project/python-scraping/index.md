@@ -19,7 +19,7 @@ links:
 - icon: twitter
   icon_pack: fab
   name: Follow
-url_code: "https://github.com/boreendesign/public_projects/blob/master/Scrape%20Content%20and%20Build%20Hugo%20Site.ipynb"
+url_code: "https://github.com/boreendesign/Scrap-Content-and-Build-a-Hugo-Site-/"
 url_pdf: ""
 url_slides: ""
 url_video: ""
@@ -114,6 +114,7 @@ def pop(item,index):
 
 
 ```python
+# Sample Scraping Function
 def scrapeTeaserDataFromCollection_type1(url,site):
 
     site_scraped_data_df_temp = pd.DataFrame(columns=["site","title", "url","price"])
@@ -121,13 +122,13 @@ def scrapeTeaserDataFromCollection_type1(url,site):
     resultsRow = soup.find_all('article', {'class': 'box-info'})
 
     for resultRow in resultsRow:
-        resultRowBreakdown = resultRow.find('p', {'class': 'text-info'}).text.split('\n')
+        resultRowBreakdown = resultRow.find('p', {'class': 'text-info'}).text.split('from')
         try:
             site_scraped_data_df_temp = site_scraped_data_df_temp.append(
                 {
                     'site':site,
                     'title':pop(resultRowBreakdown,0),
-                    'price':returnNumbersOnly(pop(resultRowBreakdown,2)),
+                    'price':returnNumbersOnly(pop(resultRowBreakdown,1)),
                     'url':resultRow.find('a').get('href')
                 }
             , ignore_index=True)
@@ -136,6 +137,7 @@ def scrapeTeaserDataFromCollection_type1(url,site):
 
     return site_scraped_data_df_temp
 
+# Sample Scraping Function
 def scrapeTeaserDataFromCollection_type2(url,site):
 
     site_scraped_data_df_temp = pd.DataFrame(columns=["site","title", "url","price"])
@@ -197,17 +199,17 @@ site_data_df
   <tbody>
     <tr>
       <th>0</th>
-      <td>Example Site 1</td>
-      <td>https://www.examplesite.com</td>
-      <td>https://www.example.com/bloglist/</td>
+      <td>Stephen Morrissey 1</td>
+      <td>https://stephenmorrissey.me</td>
+      <td>https://stephenmorrissey.me/post/type1-content/</td>
       <td>type1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Example Site 2</td>
-      <td>https://www.examplesite.com</td>
-      <td>https://www.example.com/bloglist/</td>
-      <td>type2</td>
+      <td>Stephen Morrissey 2</td>
+      <td>https://stephenmorrissey.me</td>
+      <td>https://stephenmorrissey.me/post/type1-content/</td>
+      <td>type1</td>
     </tr>
   </tbody>
 </table>
@@ -226,7 +228,7 @@ site_scraped_data_df = pd.DataFrame(columns=["site","title", "url","price"])
 for index, row in site_data_df.iterrows():
     log_processing(row['company'])
     if row['scrape_type'] == 'type1':
-        site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection(row['collection'],row['company']), ignore_index=True)
+        site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection_type1(row['collection'],row['company']), ignore_index=True)
     elif row['scrape_type'] == 'type2':
         site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection_type2(row['collection'],row['company']), ignore_index=True)
     else:
@@ -236,6 +238,8 @@ for index, row in site_data_df.iterrows():
 
 ```
 
+      ---> processing Stephen Morrissey 1
+      ---> processing Stephen Morrissey 2
 
 
 ## Output results to CSV & JSON files
@@ -248,6 +252,14 @@ site_scraped_data_df.to_csv(scraped_data_file+'.csv')
 site_scraped_data_df.to_json(scraped_data_file+'.json',orient='records')
 print(site_scraped_data_df)
 ```
+
+                      site                  title       url price
+    0  Stephen Morrissey 1    Sample Page Content  /testurl  3200
+    1  Stephen Morrissey 1  Sample Page Content 2  /testurl   900
+    2  Stephen Morrissey 1  Sample Page Content 3  /testurl  1300
+    3  Stephen Morrissey 2    Sample Page Content  /testurl  3200
+    4  Stephen Morrissey 2  Sample Page Content 2  /testurl   900
+    5  Stephen Morrissey 2  Sample Page Content 3  /testurl  1300
 
 
 [Get the code](https://github.com/boreendesign/public_projects/blob/master/Scrape%20Content%20and%20Build%20Hugo%20Site.ipynb)
