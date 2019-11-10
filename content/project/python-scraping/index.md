@@ -28,6 +28,12 @@ url_video: ""
 ---
 # Scrap Content and Build a Hugo Site
 
+This is the first part of a project I worked on that using Python, Beautiful Soup, Hugo, Netlify, Zapier and Datatables to create a site that scraped pricing data every 24 hours and rendered it on a static site.
+
+* PART 1 : Scrape the content to a JSON and CSV file (This Article)
+* PART 2 : Build the Hugo site and pull in the JSON file for rendering (coming soon)
+* PART 3 : Deploy to Netlify and Schedule to run every 24 hours (coming soon)
+
 ### Steps
 * Setup and Helper Functions
 * Import the Site Data from a CSV
