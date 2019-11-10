@@ -1,6 +1,6 @@
 ---
-title:  Scrap Content and Build a Hugo Site
-summary: An example of scraping sites using python and creating a json file for import to Hugo
+title:  Scrap Content to build a Hugo Site - Part 1
+summary: An example of scraping sites using python and creating a json file for use in Hugo
 tags:
 - Python
 - Static Site
@@ -236,10 +236,6 @@ for index, row in site_data_df.iterrows():
 
 ```
 
-      ---> processing Example Site 1
-    NOT SCRAPE TYPE FOUND
-      ---> processing Example Site 2
-    NOT SCRAPE TYPE FOUND
 
 
 ## Output results to CSV & JSON files
@@ -253,9 +249,6 @@ site_scraped_data_df.to_json(scraped_data_file+'.json',orient='records')
 print(site_scraped_data_df)
 ```
 
-    Empty DataFrame
-    Columns: [site, title, url, price]
-    Index: []
 
 [Get the code](https://github.com/boreendesign/public_projects/blob/master/Scrape%20Content%20and%20Build%20Hugo%20Site.ipynb)
 
