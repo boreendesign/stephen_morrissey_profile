@@ -30,6 +30,7 @@ url_video: ""
 1. Create a Drupal 8 Site locally using composer
 2. Setup the Rest API
 3. Create and run the python script to create the content
+4. Import content from a CSV
 
 <span style="color:red">*GOTCHA'S PLEASE READ BELOW*</span>
 
@@ -181,6 +182,10 @@ else:
 ```
 
     Success
+
+## Import content from a CSV
+I will be updating the python script to import from a CSV but please check out another article I wrote from scraping, it should be pretty easy in the meantime to use this to create a CSV and then import with the above script.[SCraping data to a csv file with Python](/project/python-scraping/)
+
 
 *I wrote all of this as I was going through the steps from scratch, except the initial installs of composer, jupyter notebooks, drush and postman, please do let me know in the comments if I got anything wrong, missed anything or need to go into detail or provide external links to, thanks and I hope it helps a few of you, this all took me quite some time to work through the kinks, hopefully it will save you the time. *
 
