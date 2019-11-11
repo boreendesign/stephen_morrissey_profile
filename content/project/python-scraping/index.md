@@ -34,6 +34,11 @@ This is the first part of a project I worked on that using Python, Beautiful Sou
 * PART 2 : Build the Hugo site and pull in the JSON file for rendering (coming soon)
 * PART 3 : Deploy to Netlify and Schedule to run every 24 hours (coming soon)
 
+## Requirements
+1. You need to have python 3 and pip installed
+2. You need to install all the imported modules below using `pip` eg `pip install requests`
+3. I recommend installing Jupyter notebooks, its an easy way to test your code in python and seeing the results after each code block
+
 ### Steps
 * Setup and Helper Functions
 * Import the Site Data from a CSV
