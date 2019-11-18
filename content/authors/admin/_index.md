@@ -63,18 +63,11 @@ user_groups:
 
 I am passionate about new and innovate technologies, user-centered design, and data-driven development. Since starting off as a front end developer in the early 2000's to positions in Program and Product, I have continued to keep my engineering skills fresh through courses and weekend projects. In Program and Product positions I have found it important to be able to translate effectively between different discipline groups whether that be UX, Technology or C-Suite Stakeholders.
 
-Key accomplishments in my previous role at Sinclair have been
-* Managing from a program and then product perspective,100+ websites across the US such as komonews.com
-* Managing Integrations in the advertising space on Web, Mobile Apps and OTT (Connected TV's such as Roku) with technologies such as Google Ad Manager, Rubicon Open Pre Bid, JWPlayer and SpotX
+Key accomplishments in my previous role at Sinclair have been 1) Managing from a program and then product perspective,100+ websites across the US such as komonews.com 2) Managing Integrations in the advertising space on Web, Mobile Apps and OTT (Connected TV's such as Roku) with technologies such as Google Ad Manager, Rubicon Open Pre Bid, JWPlayer and SpotX
 
-During my time as a Technical Program/Project Manager,  I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I believe the keys to a successful project are:
-* building strong working relationships with coworkers and clients
-* staying on top of current technologies with doing some quick projects
-* the ability to look at problems/opportunities from a high level and work backward from a common goal.
+During my time as a Technical Program/Project Manager,  I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I believe the keys to a successful project are: 1) building strong working relationships with coworkers and clients 2) staying on top of current technologies with doing some quick projects 3) the ability to look at problems/opportunities from a high level and work backward from a common goal.
 
 As mentioned, in my free time, I love working on weekend projects (kind of like my sudoku) with various colleagues, often building them from scratch or using a CMS  as the underlying framework. Having 7 years of experience working with custom CMS-driven websites using Drupal.
 
-Recently I have been focussing on increasing my knowledge in the AI/ML space and working through various courses and projects such as:
-* Google Cloud Platform Fundamentals
-* IBM Data Science Certifications
+Recently I have been focussing on increasing my knowledge in the AI/ML space and working through various courses and projects such as: 1) Google Cloud Platform Fundamentals 2) IBM Data Science Certifications
 I love a challenge, working with teams to structure a solution and then delivering that solution while monitoring impact.
