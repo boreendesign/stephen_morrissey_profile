@@ -61,8 +61,20 @@ user_groups:
 - Visitors
 ---
 
-Over many years I have been an entrepreneur and love the challenge of finding new and innovative strategies to building products and services. I am an advocate for the Backwards Press Release where I have wrote articles about this process and other helpful tools for business on my blog www.simpleseattle.biz. I have also worked closely with Jay Lyman of the Seattle Public Libraries 'Library to Business Program’ and have co-lead workshops. One of these workshops was demonstrating how to use Trello who we worked alongside to help people organize both their personal and business projects.
+I am passionate about new and innovate technologies, user-centered design, and data-driven development. Since starting off as a front end developer in the early 2000's to positions in Program and Product, I have continued to keep my engineering skills fresh through courses and weekend projects. In Program and Product positions I have found it important to be able to translate effectively between different discipline groups whether that be UX, Technology or C-Suite Stakeholders.
 
-During my time as Project Manager and Technical Project Manager, I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I have built strong working relationships with coworkers and clients, while ensuring cooperation among company departments, often remotely. Having a background in many different areas of technology and business, has been an invaluable asset. I have been able to manage a project in a streamlined way, especially communicating with managers and colleagues from a more technical role.
+Key accomplishments in my previous role at Sinclair have been
+* Managing from a program and then product perspective,100+ websites across the US such as komonews.com
+* Managing Integrations in the advertising space on Web, Mobile Apps and OTT (Connected TV's such as Roku) with technologies such as Google Ad Manager, Rubicon Open Pre Bid, JWPlayer and SpotX
 
-In my free time, I love working on my own projects with various colleagues, often building them from scratch or using Drupal as the underlying framework. Having 7 years of experience working with custom CMS-driven websites using Drupal. I enjoy building sites that are user-centric, based on user testing and market research. I am very excited for Drupal 8’s headless possibilities and configuration management to better streamline the development process on multiple devices.
+During my time as a Technical Program/Project Manager,  I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I believe the keys to a successful project are:
+* building strong working relationships with coworkers and clients
+* staying on top of current technologies with doing some quick projects
+* the ability to look at problems/opportunities from a high level and work backward from a common goal.
+
+As mentioned, in my free time, I love working on weekend projects (kind of like my sudoku) with various colleagues, often building them from scratch or using a CMS  as the underlying framework. Having 7 years of experience working with custom CMS-driven websites using Drupal.
+
+Recently I have been focussing on increasing my knowledge in the AI/ML space and working through various courses and projects such as:
+* Google Cloud Platform Fundamentals
+* IBM Data Science Certifications
+I love a challenge, working with teams to structure a solution and then delivering that solution while monitoring impact.

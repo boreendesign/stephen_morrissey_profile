@@ -24,8 +24,6 @@ url_video: ""
 
 
 ---
-# Use python to create nodes in Drupal from a CSV file
-
 ## Steps
 1. Create a Drupal 8 Site locally using composer
 2. Setup the Rest API
@@ -37,7 +35,7 @@ url_video: ""
 1. In newer versions of Drupal 8, the Rest UI doesnt seem to always work, I would recommend creating by manually as below. Also install Drush and use `drush cr` to clear the cache if you get any network errors
 2. If you run into issues on drupal, try using `drush cr` and POSTMAN is a great tool to test out the endpoints to make sure everything is setup correctly
 
-## Create a Drupal 8 site locally using composer
+## 1. Create a Drupal 8 site locally using composer
 
 One of the great reasons to use composer to create your Drupal 8 site is that you can export configurations and iport them on your live site. (This was such a pain in earlier drupal sites but now this is major pain has a great solution).
 
@@ -74,7 +72,7 @@ One of the great reasons to use composer to create your Drupal 8 site is that yo
 ```
 
 
-## Setup the Rest API
+## 2. Setup the Rest API
 1. Enable the following modules by going to /admin/modules
   * HAL
   * HTTP Basic Authentication
@@ -120,14 +118,14 @@ configuration:
     - basic_auth
 ```
 
-## SETUP POSTMAN
+##3 SETUP POSTMAN
 Url and Params: ![Alt](/project/import_to_drupal/postman1.png "Config Screen")
 Authorization: ![Alt](/project/import_to_drupal/postman2.png "Config Screen")
 Headers: ![Alt](/project/import_to_drupal/postman3.png "Config Screen")
 Body: ![Alt](/project/import_to_drupal/postman4.png "Config Screen")
 
 
-## Create and run the python script to create the content
+## 3. Create and run the python script to create the content
 
 Below is the code that you can find in the attached Jupyter notebook or run straight as a python file. This was converted from the POSTMAN commands from above.
 
@@ -183,7 +181,7 @@ else:
 
     Success
 
-## Import content from a CSV
+## 4. Import content from a CSV
 I will be updating the python script to import from a CSV but please check out another article I wrote from scraping, it should be pretty easy in the meantime to use this to create a CSV and then import with the above script.[SCraping data to a csv file with Python](/project/python-scraping/)
 
 
