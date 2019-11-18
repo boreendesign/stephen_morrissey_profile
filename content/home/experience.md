@@ -34,7 +34,7 @@ In the past year, I have moved over to Product Management to drive features that
   company_url = "www.sinclairdigital.com"
   location = "Seattle"
   date_start = "2016-01-01"
-  date_end = "2016-12-31"
+  date_end = "2017-12-31"
   description = """ As part of the Sinclair Digital Division I oversee primarily two teams. The first being the web division, where Sinclair owns over 160 news, entertainment and brand sites, I managed the delivery of numerous initiatives spanning these website properties. The second team was the Monetization across our product line where the team provided the technology for Sales to increase revenue and decrease costs. This involved managing internal tools for web, OTT and mobile apps and integration with third party tools such as DFP, OpenX, Media.net. All teams were run with Scrum with bi weekly deliverables all rolling up to the companies initiatives."""
 
 [[experience]]
