@@ -25,7 +25,7 @@ date_format = "2006"
   date_start = "2017-01-01"
   date_end = ""
   description = """
-
+In the past year, I have moved over to Product Management to drive features that rolled up to the company objectives and themes. This role encompassed Monetization strategies for our product portfolio including User and Audience Management for Registration and Subscription initiatives across Web, Mobile Apps and Over The Top. A recent achievement was introducing a lighter version of our sites through AMP with an 80% increase in eCPM and a 2x decrease in page load time. I consider myself a thought-leader and hold regular activities with our product team to make sure we are always striving to be better. I was pivotal in helping others introduce SAFe into our organization and made the WSJF (Weighted Shortest Job First) tool a standard for Quarterly Planning. It provided clarity for Product and Program while giving the development team the ability to focus on agreed-upon features without the randomization that was once prevalent. It ultimately helps turn development factories into enlightened teams.
   """
 
 [[experience]]
