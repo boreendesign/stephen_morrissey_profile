@@ -2,24 +2,227 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python | Stephen Morrissey</title>
-    <link>/tags/python/</link>
-      <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://stephenmorrissey.me/tags/python/</link>
+      <atom:link href="https://stephenmorrissey.me/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <description>Python</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 08 Nov 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/img/icon-192.png</url>
+      <url>https://stephenmorrissey.me/img/icon-192.png</url>
       <title>Python</title>
-      <link>/tags/python/</link>
+      <link>https://stephenmorrissey.me/tags/python/</link>
     </image>
     
     <item>
-      <title>Scrap Content and Build a Hugo Site</title>
-      <link>/project/internal-project/</link>
+      <title>Use python to create nodes in Drupal from a CSV file</title>
+      <link>https://stephenmorrissey.me/project/import_to_drupal/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://stephenmorrissey.me/project/import_to_drupal/</guid>
+      <description>
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a Drupal 8 Site locally using composer&lt;/li&gt;
+&lt;li&gt;Setup the Rest API&lt;/li&gt;
+&lt;li&gt;Create and run the python script to create the content&lt;/li&gt;
+&lt;li&gt;Import content from a CSV&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;span style=&#34;color:red&#34;&gt;&lt;em&gt;GOTCHA&amp;rsquo;S PLEASE READ BELOW&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;In newer versions of Drupal 8, the Rest UI doesnt seem to always work, I would recommend creating by manually as below. Also install Drush and use &lt;code&gt;drush cr&lt;/code&gt; to clear the cache if you get any network errors&lt;/li&gt;
+&lt;li&gt;If you run into issues on drupal, try using &lt;code&gt;drush cr&lt;/code&gt; and POSTMAN is a great tool to test out the endpoints to make sure everything is setup correctly&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;1-create-a-drupal-8-site-locally-using-composer&#34;&gt;1. Create a Drupal 8 site locally using composer&lt;/h2&gt;
+
+&lt;p&gt;One of the great reasons to use composer to create your Drupal 8 site is that you can export configurations and iport them on your live site. (This was such a pain in earlier drupal sites but now this is major pain has a great solution).&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Use your webserver of choice (on MAC I use MAMP free version and will reference this as we go through the tutorial)&lt;/li&gt;
+&lt;li&gt;Create your database, on MAMP
+
+&lt;ol&gt;
+&lt;li&gt;Go to &amp;lsquo;Open WebStart page&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Tools -&amp;gt; PHPMYADMIN&lt;/li&gt;
+&lt;li&gt;Databases -&amp;gt; Create Database -&amp;gt; Enter the name of your Database (for this tutorial : drupal_8_python)&lt;/li&gt;
+&lt;li&gt;You may also need to create a user for this database and assign if you have not already done so (for this tutorial : username:drupal_8_python, password:drupal_8_python_2020)&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Add your new url to the hosts file, on MAC run &lt;code&gt;sudo atom /etc/hosts&lt;/code&gt; and then enter &lt;code&gt;127.0.0.1 drupal_8_python.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create your vhosts in the MAMP folder, if you have the ATOM editor installed &lt;code&gt;atom /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf&lt;/code&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Add the following (see code snippet below - Apache Vhosts Code Snippet)&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Install composer (lots of info online for this for different operating systems)&lt;/li&gt;
+&lt;li&gt;Go to the folder on your local system where you want to install your new drupal 8 site &lt;code&gt;composer create-project drupal-composer/drupal-project:8.x-dev INSERT_YOUR_NEW_SITE_HERE --no-interaction&lt;/code&gt; for this example we will use &lt;code&gt;composer create-project drupal-composer/drupal-project:8.x-dev drupal_8_python --no-interaction&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restart your webserver&lt;/li&gt;
+&lt;li&gt;Then vist &lt;code&gt;http://drupal_8_python.local&lt;/code&gt; and continue with the installation of your new site entering the database details from earlier&lt;/li&gt;
+&lt;li&gt;You should then be able to login at &lt;code&gt;http://drupal_8_python.local/user&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Thats the end of this part, you have now gotten Drupal 8 successfully installed with Composer, nice job and you now can do configuration exports when you want to go to production!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;apache-vhosts-code-snippet&#34;&gt;Apache Vhosts Code Snippet&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;lt;VirtualHost *:80&amp;gt;
+      DocumentRoot [INSERT LOCATION TO YOUR DRUPAL FOLDER]/drupal_8_python/web
+      ServerName drupal_8_python.local
+
+      &amp;lt;Directory [INSERT LOCATION TO YOUR DRUPAL FOLDER]/drupal_8_python/web&amp;gt;
+          Options FollowSymLinks MultiViews
+          Order deny,allow
+          Allow from all
+      &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;2-setup-the-rest-api&#34;&gt;2. Setup the Rest API&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Enable the following modules by going to /admin/modules
+
+&lt;ul&gt;
+&lt;li&gt;HAL&lt;/li&gt;
+&lt;li&gt;HTTP Basic Authentication&lt;/li&gt;
+&lt;li&gt;RESTful Web Services&lt;/li&gt;
+&lt;li&gt;Serialization&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Now we are going to install the Rest UI module on the command line with &lt;code&gt;composer require drupal/restui&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Install the module through EXTEND on your drupal site and go to &lt;code&gt;/admin/config/services/rest/resource/entity%3Anode/edit&lt;/code&gt;
+Configuration Screen: &lt;img src=&#34;https://stephenmorrissey.me/project/import_to_drupal/config_ui.png&#34; alt=&#34;Alt&#34; title=&#34;Config Screen&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Now create a sample piece of content so we have something to search for to test our rest API&lt;/li&gt;
+&lt;li&gt;We now should also create a user and role to access our API, I created a role call &lt;code&gt;api_access&lt;/code&gt; and a user called &amp;lsquo;api_admin&amp;rsquo;, make sure that the api_admin user has the api_access role&lt;/li&gt;
+&lt;li&gt;Next go to the permissions for this user and make sure they have access to create, view and delete the content you want to be able to create later using Python or another language&lt;/li&gt;
+&lt;li&gt;You can now test this out if you like with the POSTMAN tool that you can download (Go to Screenshots below to see what to put in each tab)
+
+&lt;ol&gt;
+&lt;li&gt;To get the value for X-CSRF-Token, go to &lt;code&gt;[YOUR DOMAIN]/session/token&lt;/code&gt; and paste in the value, should be something like &lt;code&gt;yvxnn50NYMfMF2IEIn6s7vMvW3CQQVLxcb6njPU3InA&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;IF THE ABOVE FAILS :Go to the command line and type &lt;code&gt;drush cex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Now from the cmd line &amp;lsquo;atom config/sync/rest.resource.entity.node.yml&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Check the contents of the file with the code block below - REST IMPORT THROUGH CONFIG&lt;/li&gt;
+&lt;li&gt;You are now ready for the next section which is importing nodes through python&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;rest-import-through-config&#34;&gt;REST IMPORT THROUGH CONFIG&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - hal
+    - node
+    - serialization
+id: entity.node
+plugin_id: &#39;entity:node&#39;
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - PATCH
+    - DELETE
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##3 SETUP POSTMAN
+Url and Params: &lt;img src=&#34;https://stephenmorrissey.me/project/import_to_drupal/postman1.png&#34; alt=&#34;Alt&#34; title=&#34;Config Screen&#34; /&gt;
+Authorization: &lt;img src=&#34;https://stephenmorrissey.me/project/import_to_drupal/postman2.png&#34; alt=&#34;Alt&#34; title=&#34;Config Screen&#34; /&gt;
+Headers: &lt;img src=&#34;https://stephenmorrissey.me/project/import_to_drupal/postman3.png&#34; alt=&#34;Alt&#34; title=&#34;Config Screen&#34; /&gt;
+Body: &lt;img src=&#34;https://stephenmorrissey.me/project/import_to_drupal/postman4.png&#34; alt=&#34;Alt&#34; title=&#34;Config Screen&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-create-and-run-the-python-script-to-create-the-content&#34;&gt;3. Create and run the python script to create the content&lt;/h2&gt;
+
+&lt;p&gt;Below is the code that you can find in the attached Jupyter notebook or run straight as a python file. This was converted from the POSTMAN commands from above.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# NOTE IF THERE ARE ERRORS - TRYING DRUSH CR
+import requests
+
+base_url = &#39;http://drupal_8_python.local&#39;
+
+#Get CSRF token
+token = str(requests.get(base_url + &#39;/session/token&#39;).text)
+drupal_endpoint = base_url + &#39;/node?_format=hal_json&#39;
+
+#Set all required headers
+drupal_headers = {&#39;Content-Type&#39;:&#39;application/hal+json&#39;,
+    &#39;X-CSRF-Token&#39;:token
+}
+
+#Include all fields required by the content type, using basic examples but from this you can add any fields including custom ones
+drupal_payload =  &#39;&#39;&#39;{
+    &amp;quot;_links&amp;quot;: {
+      &amp;quot;type&amp;quot;: {
+        &amp;quot;href&amp;quot;: &amp;quot;&#39;&#39;&#39;+base_url+&#39;&#39;&#39;/rest/type/node/page&amp;quot;
+      }
+    },
+    &amp;quot;title&amp;quot;:[{&amp;quot;value&amp;quot;:&amp;quot;Sample Drupal Node Page&amp;quot;}],
+    &amp;quot;body&amp;quot;:[{&amp;quot;value&amp;quot;:&amp;quot;Body with some sample content&amp;quot;}]
+    }&#39;&#39;&#39;
+
+
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#Post the new node (a Contact) to the endpoint.
+r = requests.post(drupal_endpoint, data=drupal_payload, headers=drupal_headers, auth=(&#39;api_user&#39;,&#39;PASSWORD&#39;))
+
+
+#Check was a success
+if r.status_code == 201:
+    print(&amp;quot;Success&amp;quot;)
+else:
+    print(&amp;quot;Fail&amp;quot;)
+    print(r.status_code)
+    print(r.text)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Success
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;4-import-content-from-a-csv&#34;&gt;4. Import content from a CSV&lt;/h2&gt;
+
+&lt;p&gt;I will be updating the python script to import from a CSV but please check out another article I wrote from scraping, it should be pretty easy in the meantime to use this to create a CSV and then import with the above script.&lt;a href=&#34;https://stephenmorrissey.me/project/python-scraping/&#34;&gt;SCraping data to a csv file with Python&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;*I wrote all of this as I was going through the steps from scratch, except the initial installs of composer, jupyter notebooks, drush and postman, please do let me know in the comments if I got anything wrong, missed anything or need to go into detail or provide external links to, thanks and I hope it helps a few of you, this all took me quite some time to work through the kinks, hopefully it will save you the time. *&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/boreendesign/create_drupal_nodes_python/blob/master/Create%20Drupal%20Nodes%20with%20Python.ipynb&#34; target=&#34;_blank&#34;&gt;Get the code&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Scrap Content to build a Hugo Site - Part 1</title>
+      <link>https://stephenmorrissey.me/project/python-scraping/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>/project/internal-project/</guid>
+      <guid>https://stephenmorrissey.me/project/python-scraping/</guid>
       <description>
 
 &lt;h1 id=&#34;scrap-content-and-build-a-hugo-site&#34;&gt;Scrap Content and Build a Hugo Site&lt;/h1&gt;
+
+&lt;p&gt;This is the first part of a project I worked on that using Python, Beautiful Soup, Hugo, Netlify, Zapier and Datatables to create a site that scraped pricing data every 24 hours and rendered it on a static site.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PART 1 : Scrape the content to a JSON and CSV file (This Article)&lt;/li&gt;
+&lt;li&gt;PART 2 : Build the Hugo site and pull in the JSON file for rendering (coming soon)&lt;/li&gt;
+&lt;li&gt;PART 3 : Deploy to Netlify and Schedule to run every 24 hours (coming soon)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You need to have python 3 and pip installed&lt;/li&gt;
+&lt;li&gt;You need to install all the imported modules below using &lt;code&gt;pip&lt;/code&gt; eg &lt;code&gt;pip install requests&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;I recommend installing Jupyter notebooks, its an easy way to test your code in python and seeing the results after each code block&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h3 id=&#34;steps&#34;&gt;Steps&lt;/h3&gt;
 
@@ -102,20 +305,21 @@ def pop(item,index):
 
 &lt;h3 id=&#34;custom-functions&#34;&gt;Custom Functions&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def scrapeTeaserDataFromCollection_type1(url,site):
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Sample Scraping Function
+def scrapeTeaserDataFromCollection_type1(url,site):
 
     site_scraped_data_df_temp = pd.DataFrame(columns=[&amp;quot;site&amp;quot;,&amp;quot;title&amp;quot;, &amp;quot;url&amp;quot;,&amp;quot;price&amp;quot;])
     soup = BeautifulSoup(requests.get(url).text, &#39;html.parser&#39;)
     resultsRow = soup.find_all(&#39;article&#39;, {&#39;class&#39;: &#39;box-info&#39;})
 
     for resultRow in resultsRow:
-        resultRowBreakdown = resultRow.find(&#39;p&#39;, {&#39;class&#39;: &#39;text-info&#39;}).text.split(&#39;\n&#39;)
+        resultRowBreakdown = resultRow.find(&#39;p&#39;, {&#39;class&#39;: &#39;text-info&#39;}).text.split(&#39;from&#39;)
         try:
             site_scraped_data_df_temp = site_scraped_data_df_temp.append(
                 {
                     &#39;site&#39;:site,
                     &#39;title&#39;:pop(resultRowBreakdown,0),
-                    &#39;price&#39;:returnNumbersOnly(pop(resultRowBreakdown,2)),
+                    &#39;price&#39;:returnNumbersOnly(pop(resultRowBreakdown,1)),
                     &#39;url&#39;:resultRow.find(&#39;a&#39;).get(&#39;href&#39;)
                 }
             , ignore_index=True)
@@ -124,6 +328,7 @@ def pop(item,index):
 
     return site_scraped_data_df_temp
 
+# Sample Scraping Function
 def scrapeTeaserDataFromCollection_type2(url,site):
 
     site_scraped_data_df_temp = pd.DataFrame(columns=[&amp;quot;site&amp;quot;,&amp;quot;title&amp;quot;, &amp;quot;url&amp;quot;,&amp;quot;price&amp;quot;])
@@ -180,17 +385,17 @@ site_data_df
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;Example Site 1&lt;/td&gt;
-      &lt;td&gt;https://www.examplesite.com&lt;/td&gt;
-      &lt;td&gt;https://www.example.com/bloglist/&lt;/td&gt;
+      &lt;td&gt;Stephen Morrissey 1&lt;/td&gt;
+      &lt;td&gt;https://stephenmorrissey.me&lt;/td&gt;
+      &lt;td&gt;https://stephenmorrissey.me/post/type1-content/&lt;/td&gt;
       &lt;td&gt;type1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;Example Site 2&lt;/td&gt;
-      &lt;td&gt;https://www.examplesite.com&lt;/td&gt;
-      &lt;td&gt;https://www.example.com/bloglist/&lt;/td&gt;
-      &lt;td&gt;type2&lt;/td&gt;
+      &lt;td&gt;Stephen Morrissey 2&lt;/td&gt;
+      &lt;td&gt;https://stephenmorrissey.me&lt;/td&gt;
+      &lt;td&gt;https://stephenmorrissey.me/post/type1-content/&lt;/td&gt;
+      &lt;td&gt;type1&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -205,7 +410,7 @@ site_data_df
 for index, row in site_data_df.iterrows():
     log_processing(row[&#39;company&#39;])
     if row[&#39;scrape_type&#39;] == &#39;type1&#39;:
-        site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection(row[&#39;collection&#39;],row[&#39;company&#39;]), ignore_index=True)
+        site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection_type1(row[&#39;collection&#39;],row[&#39;company&#39;]), ignore_index=True)
     elif row[&#39;scrape_type&#39;] == &#39;type2&#39;:
         site_scraped_data_df = site_scraped_data_df.append(scrapeTeaserDataFromCollection_type2(row[&#39;collection&#39;],row[&#39;company&#39;]), ignore_index=True)
     else:
@@ -215,10 +420,8 @@ for index, row in site_data_df.iterrows():
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;  ---&amp;gt; processing Example Site 1
-NOT SCRAPE TYPE FOUND
-  ---&amp;gt; processing Example Site 2
-NOT SCRAPE TYPE FOUND
+&lt;pre&gt;&lt;code&gt;  ---&amp;gt; processing Stephen Morrissey 1
+  ---&amp;gt; processing Stephen Morrissey 2
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;output-results-to-csv-json-files&#34;&gt;Output results to CSV &amp;amp; JSON files&lt;/h2&gt;
@@ -230,9 +433,13 @@ site_scraped_data_df.to_json(scraped_data_file+&#39;.json&#39;,orient=&#39;recor
 print(site_scraped_data_df)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;Empty DataFrame
-Columns: [site, title, url, price]
-Index: []
+&lt;pre&gt;&lt;code&gt;                  site                  title       url price
+0  Stephen Morrissey 1    Sample Page Content  /testurl  3200
+1  Stephen Morrissey 1  Sample Page Content 2  /testurl   900
+2  Stephen Morrissey 1  Sample Page Content 3  /testurl  1300
+3  Stephen Morrissey 2    Sample Page Content  /testurl  3200
+4  Stephen Morrissey 2  Sample Page Content 2  /testurl   900
+5  Stephen Morrissey 2  Sample Page Content 3  /testurl  1300
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/boreendesign/public_projects/blob/master/Scrape%20Content%20and%20Build%20Hugo%20Site.ipynb&#34; target=&#34;_blank&#34;&gt;Get the code&lt;/a&gt;&lt;/p&gt;

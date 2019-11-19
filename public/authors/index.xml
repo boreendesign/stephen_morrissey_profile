@@ -2,35 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Stephen Morrissey</title>
-    <link>/authors/</link>
-      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://stephenmorrissey.me/authors/</link>
+      <atom:link href="https://stephenmorrissey.me/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/img/icon-192.png</url>
+      <url>https://stephenmorrissey.me/img/icon-192.png</url>
       <title>Authors</title>
-      <link>/authors/</link>
+      <link>https://stephenmorrissey.me/authors/</link>
     </image>
     
     <item>
       <title></title>
-      <link>/authors/admin/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/admin/</guid>
-      <description>&lt;p&gt;Over many years I have been an entrepreneur and love the challenge of finding new and innovative strategies to building products and services. I am an advocate for the Backwards Press Release where I have wrote articles about this process and other helpful tools for business on my blog www.simpleseattle.biz. I have also worked closely with Jay Lyman of the Seattle Public Libraries &amp;lsquo;Library to Business Program’ and have co-lead workshops. One of these workshops was demonstrating how to use Trello who we worked alongside to help people organize both their personal and business projects.&lt;/p&gt;
+      <link>https://stephenmorrissey.me/authors/admin/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://stephenmorrissey.me/authors/admin/</guid>
+      <description>&lt;p&gt;I am passionate about new and innovate technologies, user-centered design, and data-driven development. Since starting off as a front end developer in the early 2000&amp;rsquo;s to positions in Program and Product, I have continued to keep my engineering skills fresh through courses and weekend projects. In Program and Product positions I have found it important to be able to translate effectively between different discipline groups whether that be UX, Technology or C-Suite Stakeholders.&lt;/p&gt;
 
-&lt;p&gt;During my time as Project Manager and Technical Project Manager, I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I have built strong working relationships with coworkers and clients, while ensuring cooperation among company departments, often remotely. Having a background in many different areas of technology and business, has been an invaluable asset. I have been able to manage a project in a streamlined way, especially communicating with managers and colleagues from a more technical role.&lt;/p&gt;
+&lt;p&gt;Key accomplishments in my previous role at Sinclair have been 1) Managing from a program and then product perspective,100+ websites across the US such as komonews.com 2) Managing Integrations in the advertising space on Web, Mobile Apps and OTT (Connected TV&amp;rsquo;s such as Roku) with technologies such as Google Ad Manager, Rubicon Open Pre Bid, JWPlayer and SpotX&lt;/p&gt;
 
-&lt;p&gt;In my free time, I love working on my own projects with various colleagues, often building them from scratch or using Drupal as the underlying framework. Having 7 years of experience working with custom CMS-driven websites using Drupal. I enjoy building sites that are user-centric, based on user testing and market research. I am very excited for Drupal 8’s headless possibilities and configuration management to better streamline the development process on multiple devices.&lt;/p&gt;
+&lt;p&gt;During my time as a Technical Program/Project Manager,  I oversaw all facets of the project lifecycle; from planning, risk assessment, resource management, product development, QA to delivery. I believe the keys to a successful project are: 1) building strong working relationships with coworkers and clients 2) staying on top of current technologies with doing some quick projects 3) the ability to look at problems/opportunities from a high level and work backward from a common goal.&lt;/p&gt;
+
+&lt;p&gt;As mentioned, in my free time, I love working on weekend projects (kind of like my sudoku) with various colleagues, often building them from scratch or using a CMS  as the underlying framework. Having 7 years of experience working with custom CMS-driven websites using Drupal.&lt;/p&gt;
+
+&lt;p&gt;Recently I have been focussing on increasing my knowledge in the AI/ML space and working through various courses and projects such as: 1) Google Cloud Platform Fundamentals 2) IBM Data Science Certifications
+I love a challenge, working with teams to structure a solution and then delivering that solution while monitoring impact.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Robert Ford</title>
-      <link>/authors/robert-ford/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/authors/robert-ford/</guid>
-      <description></description>
     </item>
     
   </channel>
