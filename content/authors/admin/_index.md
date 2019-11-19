@@ -22,8 +22,8 @@ bio: Over many years I have been an entrepreneur and love the challenge of findi
 
 interests:
 - User Centered Product Design
-- DATA
-- New Technologies
+- DATA Driven Development
+- Experimenting with New Technologies
 
 education:
   courses:
