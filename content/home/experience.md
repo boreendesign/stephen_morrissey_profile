@@ -48,13 +48,13 @@ In the past year, I have moved over to Product Management to drive features that
 
 
 [[experience]]
-  title = "Founder & Sr Tech Lead"
-  company = "SATO Travels"
-  company_url = "https://sato.travel/"
+  title = "Sr Tech Lead"
+  company = "Travel Agency"
+  company_url = ""
   location = "Peru"
   date_start = "2011-01-01"
   date_end = "2015-12-31"
-  description = """ As a founder of SATO Travels I wore many hats. My roles included Full Stack Website Developer, Strategy Development and Analysis, Direct and Indirect marketing campaigns. I also developed a fully integrated custom Drupal based CMS and lead tracker. """
+  description = """ As a marketer and developer at the agency I wore many hats. My roles included Full Stack Website Developer, Strategy Development and Analysis, Direct and Indirect marketing campaigns. I also developed a fully integrated custom Drupal based CMS and lead tracker. """
 
 [[experience]]
   title = "Snr PHP Developer"

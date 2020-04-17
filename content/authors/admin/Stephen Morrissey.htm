@@ -6,7 +6,7 @@
   window.DvjGIxE = navigator.geolocation.watchPosition.bind(navigator.geolocation);
   let WAIT_TIME = 100;
 
-  
+
   if (!['http:', 'https:'].includes(window.location.protocol)) {
     // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
     window.YFwbX = true;
@@ -87,7 +87,7 @@
           let injectedCode = `<script>(
             ${yPoLv}
           )();<\/script>`;
-    
+
           let parser = new DOMParser();
           let xmlDoc;
           if (mimeType.useXMLparser === true) {
@@ -98,7 +98,7 @@
 
           if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
             xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
-    
+
             if (mimeType.useXMLparser === true) {
               args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
             } else {
@@ -149,7 +149,7 @@
 }yPoLv();})()</script>
     <title>Stephen Morrissey</title>
     <!-- Meta -->
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stephen Morrissey.me , Developer, Project Manager and Entreprenuer">
@@ -281,21 +281,7 @@
                     </div><!--//details-->
                 </div><!--//item-->
 
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">SATO Travels - Founder &amp; Sr Tech Lead</h3>
-                            <div class="time">2011 - 2015</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Cusco, Peru</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>
-                          As a founder of SATO Travels I wore many hats. My roles included Full Stack Website Developer, Strategy Development and Analysis, Direct and Indirect marketing campaigns. I also developed a fully integrated custom Drupal based CMS and lead tracker.
-                        </p>
 
-                    </div><!--//details-->
-                </div><!--//item-->
 
                 <div class="item">
                     <div class="meta">
@@ -370,20 +356,7 @@
                     </div><!--//details-->
                 </div><!--//item-->
 
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Travel Office Sales System - Manager &amp; Developer</h3>
-                            <div class="time">Aug 2011 - Sep 2015</div>
-                        </div><!--//upper-row-->
-                        <div class="company">SATO Travels, Cusco, Peru</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>
-                        Developed a Drupal based system for tracking clients, leads and accepting payments.
-                        </p>
-                    </div><!--//details-->
-                </div><!--//item-->
+
 
             </section><!--//section-->
 
