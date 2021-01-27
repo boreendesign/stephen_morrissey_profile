@@ -61,7 +61,8 @@ user_groups:
 - Visitors
 ---
 
-I am passionate about new and innovate technologies, user-centered design, and data-driven development. Since starting off as a front end developer in the early 2000's to positions in Program and Product, I have continued to keep my engineering skills fresh through courses and weekend projects. In Program and Product positions I have found it important to be able to translate effectively between different discipline groups whether that be UX, Technology or C-Suite Stakeholders.
+I thrive in bringing Order to Chaos and sparking leadership in others. Leading and motivating high-performance teams to deliver a vision that is aspirational but also measurable and actionable in driving business outcomes. 
+My philosophy is that great does not just happen by accident —it’s exceptional leadership and passion that moves the needle. I’m passionate about empowering future product leaders to build successful products that solve real customer problems and achieving business goals.
 
 Key accomplishments in my previous role at Sinclair have been 1) Managing from a program and then product perspective,100+ websites across the US such as komonews.com 2) Managing Integrations in the advertising space on Web, Mobile Apps and OTT (Connected TV's such as Roku) with technologies such as Google Ad Manager, Rubicon Open Pre Bid, JWPlayer and SpotX
 
